@@ -41,10 +41,12 @@ function AppContent() {
   }, [])
 
   useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const lenis = new Lenis({
-      smoothWheel: true,
-      duration: 1.15,
-      wheelMultiplier: 0.95,
+      smoothWheel: !reduced,
+      duration: reduced ? 0 : 1.28,
+      wheelMultiplier: 0.88,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     })
 
     let frame = 0
@@ -63,20 +65,23 @@ function AppContent() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-canvas">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       {!loaded && <Preloader onComplete={handlePreloaderComplete} />}
 
       <MinimalBackdrop />
 
       <div className="relative z-10">
         <Navbar />
-        <main>
+        <main id="main-content">
           <Hero loaded={loaded} />
           <Marquee items={techMarquee} />
           <About />
           <Skills />
           <Process />
-          <Experience />
           <Projects />
+          <Experience />
           <Testimonials />
           <Education />
           <Blog />

@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import type { ReactNode } from 'react'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
+import { premiumEase } from '../lib/motion'
 
 interface MagneticButtonProps {
   children: ReactNode
@@ -20,8 +21,8 @@ export default function MagneticButton({
   const reduced = usePrefersReducedMotion()
   const x = useMotionValue(0)
   const y = useMotionValue(0)
-  const springX = useSpring(x, { stiffness: 300, damping: 20 })
-  const springY = useSpring(y, { stiffness: 300, damping: 20 })
+  const springX = useSpring(x, { stiffness: 210, damping: 24, mass: 0.62 })
+  const springY = useSpring(y, { stiffness: 210, damping: 24, mass: 0.62 })
 
   const handleMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (reduced) return
@@ -46,7 +47,9 @@ export default function MagneticButton({
       onMouseMove={handleMove}
       onMouseLeave={reset}
       onClick={onClick}
-      whileTap={{ scale: 0.96 }}
+      whileHover={reduced ? undefined : { scale: 1.012 }}
+      whileTap={{ scale: 0.975 }}
+      transition={{ duration: 0.32, ease: premiumEase }}
     >
       {children}
     </motion.button>

@@ -3,10 +3,10 @@ import { FiArrowRight } from 'react-icons/fi'
 import PhiFrame from '../components/PhiFrame'
 import SectionHeader from '../components/SectionHeader'
 
-const highlights = [
-  'React, TypeScript, Node.js, and Prisma for production-grade web apps',
-  'LLM integrations: parsing, scoring, prompts, and user-facing AI features',
-  'SEO, analytics, and monitoring from my DevOps & growth engineering background',
+const principles = [
+  'Start with the workflow: what the user needs to do, decide, automate, or understand.',
+  'Design the system shape early: UI states, API boundaries, data models, and failure paths.',
+  'Use AI where it improves a product outcome - faster review, smarter search, cleaner automation, or better decisions.',
 ]
 
 export default function About() {
@@ -15,19 +15,19 @@ export default function About() {
       <div className="section-shell relative z-10">
         <SectionHeader
           index="01"
-          label="About"
-          title="Engineer who ships — stack to production"
-          subtitle="CS graduate with hands-on experience across full-stack product work, AI tooling, and growth systems."
+          label="Direction"
+          title="A builder focused on SaaS systems, not just screens"
+          subtitle="My work sits at the intersection of MERN engineering, AI workflows, and product thinking - the parts that make modern web products feel useful, scalable, and alive."
         />
 
         <div className="golden-grid golden-grid--reverse items-start">
           <PhiFrame variant="accent">
             <p className="font-display text-2xl font-medium leading-snug text-ink">
-              I don&apos;t just wire APIs — I design how data, AI, and UI fit together so the product feels
-              cohesive end-to-end.
+              I think through the full product path: what users see, what the system stores, what the API owns, and
+              where AI can remove friction without making the experience fragile.
             </p>
             <ul className="mt-[var(--phi-4)] space-y-3 border-t border-default pt-[var(--phi-4)]">
-              {highlights.map((h) => (
+              {principles.map((h) => (
                 <li key={h} className="flex gap-3 text-sm leading-relaxed text-muted">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                   {h}
@@ -42,16 +42,16 @@ export default function About() {
               }}
               className="mt-[var(--phi-4)] inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-warm"
             >
-              How I work <FiArrowRight size={14} />
+              See the build flow <FiArrowRight size={14} />
             </a>
           </PhiFrame>
 
           <div className="grid gap-[var(--phi-3)] sm:grid-cols-2">
             {[
-              { n: '15+', l: 'Projects', sub: 'Web & AI tools' },
-              { n: '3+', l: 'Years', sub: 'Professional build' },
-              { n: '4', l: 'Stacks', sub: 'Full-stack · AI · SEO · Ops' },
-              { n: '100%', l: 'Ownership', sub: 'Design → deploy' },
+              { n: 'MERN', l: 'Core stack', sub: 'React, Node, Express, MongoDB' },
+              { n: 'AI', l: 'Workflow layer', sub: 'LLMs, parsing, scoring, automation' },
+              { n: 'SaaS', l: 'Product direction', sub: 'Dashboards, tools, systems' },
+              { n: 'UX', l: 'Execution style', sub: 'Cinematic, responsive, practical' },
             ].map((stat, i) => (
               <motion.div
                 key={stat.l}

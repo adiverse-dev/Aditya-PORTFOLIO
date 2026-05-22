@@ -1,96 +1,64 @@
 import { motion } from 'framer-motion'
-import { FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiExternalLink, FiGithub, FiShield } from 'react-icons/fi'
 import ProjectPreview from '../components/ProjectPreview'
 import SectionHeader from '../components/SectionHeader'
-import { projects } from '../data/projects'
+import { type Project, projects } from '../data/projects'
+import { softSpring } from '../lib/motion'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 export default function Projects() {
-  const featured = projects.find((p) => p.featured)!
-  const others = projects.filter((p) => !p.featured)
+  const reduced = usePrefersReducedMotion()
 
   return (
     <section id="projects" className="section-wrap relative bg-surface">
       <div className="section-shell">
         <SectionHeader
-          index="05"
-          label="Projects"
-          title="Case studies — stack, AI & outcomes"
-          subtitle="Each build includes what I shipped, how AI fits (if applicable), and links to explore."
+          index="04"
+          label="Selected work"
+          title="Product case-study previews"
+          subtitle="Projects framed by the problem, the user workflow, the engineering approach, and the value created - not just a stack list."
         />
 
-        <motion.article
-          className="project-case panel-card overflow-hidden p-0"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="golden-grid !items-stretch">
-            <div className="border-b border-default bg-surface-muted p-[var(--phi-4)] lg:border-b-0 lg:border-r">
-              <ProjectPreview type={featured.preview} />
-            </div>
-            <div className="p-[var(--phi-4)] lg:p-[var(--phi-5)]">
-              <div className="flex flex-wrap gap-2">
-                <span className="tech-pill tech-pill--gold">Featured</span>
-                {featured.ai && <span className="tech-pill tech-pill--gold">AI-powered</span>}
-              </div>
-              <h3 className="mt-[var(--phi-2)] font-display text-3xl font-semibold text-ink">{featured.title}</h3>
-              <p className="font-semibold text-warm">{featured.kind}</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted">{featured.caseStudy}</p>
-              {featured.caseStudyAi && (
-                <p className="mt-3 rounded-sm border-l-4 border-gold bg-surface-muted py-2 pl-4 text-sm text-ink-soft">
-                  <strong className="text-warm">AI:</strong> {featured.caseStudyAi}
-                </p>
-              )}
-              <div className="mt-4 flex flex-wrap gap-4">
-                {featured.metrics.map((m) => (
-                  <div key={m.label}>
-                    <p className="font-display text-xl font-semibold text-gold">{m.value}</p>
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted">{m.label}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {featured.stack.map((t) => (
-                  <span key={t} className="tech-pill">
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="project-links">
-                {featured.live !== '#' && (
-                  <a href={featured.live} target="_blank" rel="noopener noreferrer" className="project-link">
-                    Live <FiExternalLink size={14} />
-                  </a>
-                )}
-                <a href={featured.github} target="_blank" rel="noopener noreferrer" className="project-link project-link--ghost">
-                  <FiGithub size={14} /> GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </motion.article>
-
-        <div className="mt-[var(--phi-5)] grid gap-[var(--phi-4)] lg:grid-cols-2">
-          {others.map((p, i) => (
+        <div className="project-case-grid">
+          {projects.map((p, i) => (
             <motion.article
               key={p.id}
               className="project-case panel-card overflow-hidden p-0"
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true, amount: 0.18, margin: '-4% 0px -10% 0px' }}
+              whileHover={reduced ? undefined : { y: -4 }}
+              transition={{ ...softSpring, delay: i * 0.07 }}
             >
-              <div className="border-b border-default bg-surface-muted p-[var(--phi-3)]">
+              <div className="project-preview-panel border-b border-default bg-surface-muted p-[var(--phi-3)]">
                 <ProjectPreview type={p.preview} />
               </div>
-              <div className="p-[var(--phi-4)]">
-                {p.ai && <span className="tech-pill tech-pill--gold mb-2">AI-powered</span>}
+              <div className="project-copy">
+                <div className="mb-2 flex flex-wrap gap-2">
+                  {p.featured && <span className="tech-pill tech-pill--gold">Featured system</span>}
+                  {p.ai && <span className="tech-pill tech-pill--gold">AI workflow</span>}
+                  <span className="tech-pill tech-pill--outline">{p.status}</span>
+                </div>
                 <h3 className="font-display text-2xl font-semibold text-ink">{p.title}</h3>
                 <p className="text-sm font-semibold text-warm">{p.kind}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{p.caseStudy}</p>
+                <p className="mt-3 text-sm font-semibold leading-relaxed text-ink-soft">{p.summary}</p>
+                <ul className="project-highlights">
+                  {p.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p className="project-system-note">
+                  <strong className="text-warm">Problem:</strong> {p.problem}
+                </p>
+                <p className="mt-2 text-sm text-ink-soft">
+                  <strong className="text-warm">Outcome:</strong> {p.outcome}
+                </p>
+                <p className="project-system-note">
+                  <strong className="text-warm">System:</strong> {p.approach}
+                </p>
                 {p.caseStudyAi && (
-                  <p className="mt-2 text-sm text-ink-soft">
-                    <strong className="text-warm">AI:</strong> {p.caseStudyAi}
+                  <p className="project-system-note">
+                    <strong className="text-warm">AI layer:</strong> {p.caseStudyAi}
                   </p>
                 )}
                 <div className="mt-3 flex flex-wrap gap-3">
@@ -100,6 +68,9 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+                <p className="mt-3 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-muted">
+                  <FiShield className="text-gold" size={13} /> {p.deployment}
+                </p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {p.stack.map((t) => (
                     <span key={t} className="tech-pill text-[9px]">
@@ -107,21 +78,45 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="project-links">
-                  {p.live !== '#' && (
-                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="project-link">
-                      Live <FiExternalLink size={14} />
-                    </a>
-                  )}
-                  <a href={p.github} target="_blank" rel="noopener noreferrer" className="project-link project-link--ghost">
-                    <FiGithub size={14} /> GitHub
-                  </a>
-                </div>
+                <ProjectCtas project={p} />
               </div>
             </motion.article>
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
+function ProjectCtas({ project }: { project: Project }) {
+  const hasLive = project.live !== '#'
+
+  return (
+    <div className="project-links">
+      {hasLive ? (
+        <a
+          href={project.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-link"
+          aria-label={`Open live site for ${project.title}`}
+        >
+          Live site <FiExternalLink size={14} />
+        </a>
+      ) : (
+        <span className="project-link project-link--disabled" aria-label={`Live site pending for ${project.title}`}>
+          Live pending <FiExternalLink size={14} />
+        </span>
+      )}
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="project-link project-link--ghost"
+        aria-label={`Open GitHub repository for ${project.title}`}
+      >
+        <FiGithub size={14} /> GitHub
+      </a>
+    </div>
   )
 }

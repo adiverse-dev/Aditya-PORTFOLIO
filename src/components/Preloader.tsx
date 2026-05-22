@@ -41,7 +41,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
         <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-md bg-accent font-display text-xl font-semibold text-white">
           A
         </div>
-        <p className="section-label">Full-Stack · AI Portfolio</p>
+        <p className="section-label">MERN Stack + AI Portfolio</p>
         <div className="mx-auto mt-6 h-1 w-48 overflow-hidden rounded-full bg-surface-muted">
           <div
             className="h-full rounded-full bg-gold transition-all duration-150"

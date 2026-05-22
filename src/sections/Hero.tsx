@@ -11,7 +11,7 @@ interface HeroProps {
   loaded: boolean
 }
 
-const roles = ['Full-Stack Developer', 'AI Product Engineer', 'Automation Builder']
+const roles = ['MERN Products', 'AI Workflows', 'SaaS Systems']
 
 export default function Hero({ loaded }: HeroProps) {
   const reduced = usePrefersReducedMotion()
@@ -28,24 +28,25 @@ export default function Hero({ loaded }: HeroProps) {
         <motion.div style={{ y }} initial={{ opacity: 0 }} animate={loaded ? { opacity: 1 } : {}}>
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <span className="availability-pill">Open to work</span>
-            <span className="text-xs font-semibold uppercase tracking-widest text-muted">
-              Noida / Delhi NCR · Remote-friendly
+            <span className="hero-location text-xs font-semibold uppercase tracking-widest text-muted">
+              Noida / Delhi NCR - Remote-friendly
             </span>
           </div>
 
-          <div className="golden-grid items-start gap-[var(--phi-5)]">
-            <div>
+          <div className="golden-grid hero-grid">
+            <div className="hero-copy">
               <h1 className="section-heading-lg">
-                I build <span className="text-gold">full-stack</span> products with{' '}
-                <span className="text-accent">AI</span> inside.
+                MERN <span className="text-gold">full-stack</span> + <span className="text-accent">AI</span>{' '}
+                developer for modern SaaS products.
               </h1>
 
               <p className="body-copy mt-[var(--phi-3)]">
-                I&apos;m <strong className="font-semibold text-ink">Aditya Singh</strong> — I ship React/Node
-                applications, LLM-powered workflows, and data dashboards that teams actually use in production.
+                I&apos;m <strong className="font-semibold text-ink">Aditya Singh</strong> - I design and build
+                intelligent web experiences, automation workflows, and scalable digital systems with React,
+                Node.js, MongoDB, Express, and AI integrations.
               </p>
 
-              <div className="mt-[var(--phi-3)] flex flex-wrap gap-2">
+              <div className="hero-role-list mt-[var(--phi-3)] flex flex-wrap gap-2">
                 {roles.map((role) => (
                   <span key={role} className="tech-pill tech-pill--outline">
                     {role}
@@ -84,7 +85,7 @@ export default function Hero({ loaded }: HeroProps) {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-[var(--phi-4)]">
+            <div className="hero-visual">
               <ProfileAvatar size="lg" />
               {loaded && <AITerminal />}
             </div>
@@ -92,9 +93,9 @@ export default function Hero({ loaded }: HeroProps) {
 
           <div className="stat-row mt-[var(--phi-5)]">
             {[
-              { n: '15+', l: 'Apps & tools shipped' },
-              { n: '3+', l: 'Years engineering' },
-              { n: 'AI', l: 'Native in my stack' },
+              { n: '15+', l: 'Products & tools shipped' },
+              { n: 'MERN', l: 'Core engineering stack' },
+              { n: 'AI', l: 'Workflow-native builds' },
             ].map((s) => (
               <div key={s.l} className="stat-chip">
                 <p className="font-display text-3xl font-semibold text-gold">{s.n}</p>
@@ -104,10 +105,10 @@ export default function Hero({ loaded }: HeroProps) {
           </div>
 
           <div className="mt-[var(--phi-6)]">
-            <SectionLabel>What I deliver</SectionLabel>
+            <SectionLabel>What I build</SectionLabel>
             <p className="body-copy mt-[var(--phi-2)] !max-w-2xl">
-              Product engineering across the stack — plus the AI layer when it saves time, improves decisions, or
-              unlocks a feature users can&apos;t get elsewhere.
+              Product engineering across the MERN stack - with AI added where it improves workflows, decisions,
+              search, automation, or the user experience itself.
             </p>
             <div className="mt-[var(--phi-4)]">{loaded && <CapabilitiesGrid />}</div>
           </div>

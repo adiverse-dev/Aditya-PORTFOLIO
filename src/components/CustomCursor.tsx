@@ -1,10 +1,15 @@
 import { motion, useSpring } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 export default function CustomCursor() {
   const reduced = usePrefersReducedMotion()
-  const [enabled, setEnabled] = useState(false)
+  const canUseCursor = useMemo(() => {
+    if (typeof window === 'undefined' || reduced) return false
+    const fine = window.matchMedia('(pointer: fine)').matches
+    const coarse = window.matchMedia('(pointer: coarse)').matches
+    return fine && !coarse
+  }, [reduced])
   const [hovering, setHovering] = useState(false)
   const [clicking, setClicking] = useState(false)
 
@@ -14,11 +19,7 @@ export default function CustomCursor() {
   const ringY = useSpring(0, { stiffness: 150, damping: 22, mass: 0.8 })
 
   useEffect(() => {
-    const fine = window.matchMedia('(pointer: fine)').matches
-    const coarse = window.matchMedia('(pointer: coarse)').matches
-    setEnabled(fine && !coarse && !reduced)
-
-    if (!fine || coarse || reduced) return
+    if (!canUseCursor) return
 
     document.body.classList.add('custom-cursor-active')
 
@@ -51,9 +52,9 @@ export default function CustomCursor() {
       window.removeEventListener('mousedown', down)
       window.removeEventListener('mouseup', up)
     }
-  }, [reduced, cursorX, cursorY, ringX, ringY])
+  }, [canUseCursor, cursorX, cursorY, ringX, ringY])
 
-  if (!enabled) return null
+  if (!canUseCursor) return null
 
   return (
     <>

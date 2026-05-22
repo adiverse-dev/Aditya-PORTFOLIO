@@ -5,33 +5,33 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const experiences = [
   {
-    period: '2024 — Present',
+    period: '2024 - Present',
     role: 'Full Stack Developer',
-    focus: 'Product · AI · Web',
+    focus: 'MERN - AI - Product',
     points: [
-      'Shipped scalable React/Node applications with modern auth and APIs',
-      'Integrated AI features: parsing, recommendations, and automation',
-      'Owned deployment, reliability, and post-launch iteration',
+      'Building React and Node products with practical API and data architecture',
+      'Integrating AI features for parsing, recommendations, feedback, and automation',
+      'Owning the path from interface polish to deployment and iteration',
     ],
   },
   {
-    period: '2022 — 2024',
+    period: '2022 - 2024',
     role: 'SEO & DevOps Engineer',
-    focus: 'Growth · Infra',
+    focus: 'Growth - Infra',
     points: [
-      'Improved organic search performance and technical SEO',
-      'Managed infrastructure, reporting, and anomaly detection',
-      'Built workflows that connected marketing data to engineering',
+      'Improved technical SEO, performance, and discoverability for live products',
+      'Worked with reporting, infrastructure, monitoring, and anomaly detection',
+      'Built a strong foundation in reliability, measurement, and systems thinking',
     ],
   },
   {
-    period: '2021 — 2022',
+    period: '2021 - 2022',
     role: 'Network Monitoring Engineer',
     focus: 'Operations',
     points: [
-      'Monitored network health and incident response',
-      'Maintained uptime and operational stability',
-      'Foundation in systems thinking I still apply to product work',
+      'Monitored system health and incident response workflows',
+      'Learned to think in uptime, alerts, operational risk, and failure states',
+      'Carried that operational mindset into product engineering work',
     ],
   },
 ]
@@ -46,10 +46,10 @@ export default function Experience() {
     <section id="experience" ref={sectionRef} className="section-wrap section-wrap--band">
       <div className="section-shell">
         <SectionHeader
-          index="04"
+          index="05"
           label="Experience"
-          title="Career path into product engineering"
-          subtitle="From operations and growth systems to full-stack and AI-native builds."
+          title="A path shaped by product, growth, and systems"
+          subtitle="My background moves from operations and growth into full-stack product engineering - useful context for building software that performs after launch."
         />
 
         <div className="relative mt-[var(--phi-4)] hidden md:block">

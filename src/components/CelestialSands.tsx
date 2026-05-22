@@ -18,9 +18,7 @@ export default function CelestialSands() {
     window.addEventListener('resize', resize)
     resize()
 
-    let time = 0
     const render = () => {
-      time += 0.005
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
       const gradient = ctx.createLinearGradient(

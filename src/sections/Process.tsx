@@ -6,26 +6,26 @@ const steps = [
   {
     icon: FiBox,
     step: '01',
-    title: 'Discover & Design',
-    desc: 'Map user flows, data models, and where AI adds real value — not hype.',
+    title: 'Map the Product System',
+    desc: 'Define the user workflow, core data, success states, and where automation or AI should actually help.',
   },
   {
     icon: FiCode,
     step: '02',
-    title: 'Build Full-Stack',
-    desc: 'Ship typed React/Node surfaces with clean APIs, auth, and observability baked in.',
+    title: 'Build the MERN Foundation',
+    desc: 'Shape the React UI, Node/Express API, MongoDB model, auth paths, and reusable product components.',
   },
   {
     icon: FiCpu,
     step: '03',
-    title: 'Integrate AI',
-    desc: 'Wire LLMs, embeddings, and automation with guardrails, logging, and fallbacks.',
+    title: 'Layer in Intelligence',
+    desc: 'Add LLM parsing, scoring, recommendations, or workflow automation with validation and fallback behavior.',
   },
   {
     icon: FiUploadCloud,
     step: '04',
-    title: 'Deploy & Iterate',
-    desc: 'CI/CD, monitoring, SEO, and metric loops so the product improves after launch.',
+    title: 'Ship, Measure, Improve',
+    desc: 'Prepare deployment, performance, SEO, and feedback loops so the product can evolve after launch.',
   },
 ]
 
@@ -35,9 +35,9 @@ export default function Process() {
       <div className="section-shell">
         <SectionHeader
           index="03"
-          label="How I work"
-          title="From idea to intelligent product"
-          subtitle="A repeatable flow for full-stack builds with an AI layer when it earns its place."
+          label="Build flow"
+          title="From idea to scalable intelligent product"
+          subtitle="A practical workflow for turning a product concept into a usable system - with AI added as part of the architecture, not pasted on at the end."
         />
 
         <div className="grid gap-[var(--phi-3)] md:grid-cols-2 lg:grid-cols-4">

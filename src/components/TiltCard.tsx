@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import type { ReactNode } from 'react'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
+import { softSpring } from '../lib/motion'
 
 interface TiltCardProps {
   children: ReactNode
@@ -12,13 +13,15 @@ export default function TiltCard({ children, className = '', intensity = 12 }: T
   const reduced = usePrefersReducedMotion()
   const mx = useMotionValue(0)
   const my = useMotionValue(0)
-  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [intensity, -intensity]), {
-    stiffness: 300,
-    damping: 30,
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [intensity * 0.62, -intensity * 0.62]), {
+    stiffness: 185,
+    damping: 28,
+    mass: 0.78,
   })
-  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-intensity, intensity]), {
-    stiffness: 300,
-    damping: 30,
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-intensity * 0.62, intensity * 0.62]), {
+    stiffness: 185,
+    damping: 28,
+    mass: 0.78,
   })
 
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -26,6 +29,8 @@ export default function TiltCard({ children, className = '', intensity = 12 }: T
     const rect = e.currentTarget.getBoundingClientRect()
     mx.set((e.clientX - rect.left) / rect.width - 0.5)
     my.set((e.clientY - rect.top) / rect.height - 0.5)
+    e.currentTarget.style.setProperty('--pointer-x', `${e.clientX - rect.left}px`)
+    e.currentTarget.style.setProperty('--pointer-y', `${e.clientY - rect.top}px`)
   }
 
   const onLeave = () => {
@@ -44,8 +49,8 @@ export default function TiltCard({ children, className = '', intensity = 12 }: T
       }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      whileHover={{ scale: reduced ? 1 : 1.02 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+      whileHover={{ scale: reduced ? 1 : 1.012, y: reduced ? 0 : -3 }}
+      transition={softSpring}
     >
       {children}
     </motion.div>

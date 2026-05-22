@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { FiArrowRight } from 'react-icons/fi'
 import { blogPosts } from '../data/projects'
 import SectionHeader from '../components/SectionHeader'
 
@@ -9,9 +8,9 @@ export default function Blog() {
       <div className="section-shell">
         <SectionHeader
           index="08"
-          label="Notes"
-          title="Writing on full-stack & AI"
-          subtitle="Short notes on shipping LLM features and product engineering — more posts coming."
+          label="Thinking"
+          title="Notes from the builder workspace"
+          subtitle="Short technical notes on MERN systems, AI workflow design, and the decisions behind useful product engineering."
         />
 
         <div className="grid gap-[var(--phi-4)] md:grid-cols-2">
@@ -36,8 +35,8 @@ export default function Blog() {
                   </span>
                 ))}
               </div>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-accent">
-                Read note <FiArrowRight size={12} />
+              <span className="mt-4 inline-flex items-center text-xs font-bold uppercase tracking-wider text-accent">
+                Writing topic
               </span>
             </motion.article>
           ))}

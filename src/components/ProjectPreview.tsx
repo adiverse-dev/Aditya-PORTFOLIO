@@ -1,41 +1,72 @@
-import DashboardMockup from './DashboardMockup'
-
-type PreviewType = 'trackify' | 'resume-ai' | 'sniper'
+type PreviewType = 'healio' | 'propai' | 'sniper'
 
 export default function ProjectPreview({ type }: { type: PreviewType }) {
-  if (type === 'trackify') {
+  if (type === 'healio') {
     return (
-      <div className="project-preview project-preview--trackify">
-        <DashboardMockup />
-      </div>
-    )
-  }
-
-  if (type === 'resume-ai') {
-    return (
-      <div className="project-preview project-preview--ai">
+      <div className="project-preview project-preview--healio">
         <div className="ai-preview">
           <div className="ai-preview__sidebar">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Upload</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Patient intake</p>
             <div className="ai-preview__file" />
             <div className="ai-preview__file ai-preview__file--dim" />
+            <div className="ai-preview__demo-badge">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
+              </span>
+              AI triage
+            </div>
           </div>
           <div className="ai-preview__main">
             <div className="ai-preview__score">
-              <span className="font-display text-4xl font-semibold text-gold">87</span>
-              <span className="text-xs text-muted">Match score</span>
+              <span className="font-display text-3xl font-semibold text-gold">3</span>
+              <span className="text-xs text-muted">role dashboards</span>
             </div>
             <div className="ai-preview__skills">
-              {['React', 'TypeScript', 'Node', 'LLM'].map((s) => (
+              {['Admin', 'Doctor', 'Patient', 'AI'].map((s) => (
                 <span key={s} className="tech-pill text-[9px]">
                   {s}
                 </span>
               ))}
             </div>
             <div className="ai-preview__insight">
-              <span className="text-[10px] font-bold uppercase text-warm">AI insight</span>
+              <span className="text-[10px] font-bold uppercase text-warm">Care routing</span>
               <p className="mt-1 text-xs leading-relaxed text-muted">
-                Strong full-stack signal — highlight API + dashboard work in summary.
+                Symptom text becomes structured issue signals and doctor recommendation logic.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (type === 'propai') {
+    return (
+      <div className="project-preview project-preview--propai">
+        <div className="ai-preview">
+          <div className="ai-preview__sidebar">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Property ops</p>
+            <div className="ai-preview__file" />
+            <div className="ai-preview__file ai-preview__file--dim" />
+            <div className="ai-preview__file ai-preview__file--dim" />
+          </div>
+          <div className="ai-preview__main">
+            <div className="ai-preview__score">
+              <span className="font-display text-4xl font-semibold text-gold">12+</span>
+              <span className="text-xs text-muted">rental workflows</span>
+            </div>
+            <div className="ai-preview__skills">
+              {['Owner', 'Tenant', 'Admin', 'Rent'].map((s) => (
+                <span key={s} className="tech-pill text-[9px]">
+                  {s}
+                </span>
+              ))}
+            </div>
+            <div className="ai-preview__insight">
+              <span className="text-[10px] font-bold uppercase text-warm">AI operations</span>
+              <p className="mt-1 text-xs leading-relaxed text-muted">
+                Smart recommendations guide listings, occupancy, rent, tickets, and tenant workflows.
               </p>
             </div>
           </div>
@@ -45,7 +76,7 @@ export default function ProjectPreview({ type }: { type: PreviewType }) {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
           </span>
-          Live AI demo available
+          Multi-role SaaS demo
         </div>
       </div>
     )

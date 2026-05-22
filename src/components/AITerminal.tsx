@@ -4,10 +4,10 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const lines = [
   { prompt: '$', text: 'aditya --role fullstack-ai' },
-  { prompt: '>', text: 'Building React + Node products with LLM pipelines...' },
-  { prompt: '>', text: 'Stack: TypeScript · OpenAI · Prisma · Azure' },
-  { prompt: '>', text: 'Shipped: dashboards, SEO systems, resume intelligence' },
-  { prompt: '✓', text: 'Ready for your next product.', highlight: true },
+  { prompt: '>', text: 'Building MERN SaaS products with AI workflows...' },
+  { prompt: '>', text: 'Stack: React - Node - MongoDB - Express - OpenAI' },
+  { prompt: '>', text: 'Focus: dashboards, automation, intelligent UX' },
+  { prompt: 'ok', text: 'Systems-minded, product-first engineering.', highlight: true },
 ]
 
 export default function AITerminal() {
@@ -31,7 +31,7 @@ export default function AITerminal() {
         <span className="ai-terminal__dot ai-terminal__dot--gold" />
         <span className="ai-terminal__dot" />
         <span className="ai-terminal__dot" />
-        <span className="ai-terminal__title">aditya@fullstack-ai ~ portfolio</span>
+        <span className="ai-terminal__title">aditya@mern-ai ~ portfolio</span>
       </div>
       <div className="ai-terminal__body">
         {lines.slice(0, visible).map((line) => (

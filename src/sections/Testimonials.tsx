@@ -5,19 +5,19 @@ import SectionHeader from '../components/SectionHeader'
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="section-wrap section-wrap--band">
+    <section id="testimonials" className="section-wrap">
       <div className="section-shell">
         <SectionHeader
           index="06"
           label="Proof"
-          title="Results & feedback"
-          subtitle="Metrics from shipped work and collaboration highlights."
+          title="Signals that the work creates value"
+          subtitle="A trust layer for the story: shipped systems, measurable product improvements, and feedback from collaborative work."
         />
 
         <div className="mb-[var(--phi-5)] grid gap-[var(--phi-3)] sm:grid-cols-3">
           {[
-            { value: '+42%', label: 'SEO visibility (Sniper)' },
-            { value: '91%', label: 'AI parse success (Resume)' },
+            { value: '+42%', label: 'SEO visibility uplift' },
+            { value: '91%', label: 'AI parse success' },
             { value: '2.1s', label: 'LCP after perf pass' },
           ].map((m, i) => (
             <motion.div
@@ -46,7 +46,7 @@ export default function Testimonials() {
             >
               <FiMessageCircle className="text-gold" size={22} />
               <p className="mt-4 font-display text-lg italic leading-relaxed text-ink">&ldquo;{t.quote}&rdquo;</p>
-              <footer className="mt-4 text-xs font-bold uppercase tracking-widest text-muted">— {t.role}</footer>
+              <footer className="mt-4 text-xs font-bold uppercase tracking-widest text-muted">- {t.role}</footer>
             </motion.blockquote>
           ))}
         </div>

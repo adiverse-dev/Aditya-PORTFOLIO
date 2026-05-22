@@ -7,8 +7,9 @@ const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Process', href: '#process' },
-  { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Proof', href: '#testimonials' },
   { label: 'Education', href: '#education' },
   { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
@@ -58,9 +59,9 @@ export default function Navbar() {
             A
           </span>
           <div className="hidden sm:block">
-            <span className="font-display text-lg font-semibold tracking-tight text-ink">Aditya Singh</span>
-            <span className="block text-[9px] font-bold uppercase tracking-[0.2em] text-gold">
-              Full-Stack · AI
+            <span className="whitespace-nowrap font-display text-lg font-semibold tracking-tight text-ink">Aditya Singh</span>
+            <span className="block whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.2em] text-gold">
+              MERN Stack + AI
             </span>
           </div>
         </a>
@@ -74,6 +75,7 @@ export default function Navbar() {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={active ? 'nav-link nav-link-active' : 'nav-link'}
+                aria-current={active ? 'page' : undefined}
               >
                 {item.label}
               </a>
@@ -82,7 +84,9 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
+          <div className="hidden sm:block">
+            <ThemeToggle />
+          </div>
           <a
             href="https://www.linkedin.com/in/aditya-singh-14137224b/"
             target="_blank"
@@ -102,9 +106,12 @@ export default function Navbar() {
           </a>
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-sm border border-default bg-surface text-ink lg:hidden"
+            className="mobile-menu-button flex h-10 w-10 items-center justify-center rounded-sm border border-default bg-surface text-ink lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            style={{ position: 'fixed', right: '1rem', top: '1rem', zIndex: 60 }}
           >
             {mobileMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
@@ -113,7 +120,7 @@ export default function Navbar() {
 
       {mobileMenuOpen && (
         <div className="border-t border-default bg-surface lg:hidden">
-          <nav className="section-shell flex flex-col gap-1 py-4">
+          <nav id="mobile-navigation" className="section-shell flex flex-col gap-1 py-4">
             {navLinks.map((item) => (
               <a
                 key={item.label}
@@ -122,6 +129,7 @@ export default function Navbar() {
                 className={`rounded-sm px-3 py-3 text-sm font-bold uppercase tracking-wider ${
                   activeSection === item.href.slice(1) ? 'bg-surface-muted text-warm' : 'text-muted'
                 }`}
+                aria-current={activeSection === item.href.slice(1) ? 'page' : undefined}
               >
                 {item.label}
               </a>

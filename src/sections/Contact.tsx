@@ -11,8 +11,8 @@ export default function Contact() {
         <SectionHeader
           index="09"
           label="Contact"
-          title="Let's build your next full-stack or AI product"
-          subtitle="Open for full-time roles, contract builds, and collaborations — reply within 24–48 hours."
+          title="Let's build a MERN + AI product with a clear system behind it"
+          subtitle="Open for full-time roles, contract builds, and collaborations - especially SaaS tools, intelligent dashboards, automation workflows, and modern web products."
           align="center"
         />
 
@@ -24,7 +24,7 @@ export default function Contact() {
         >
           <PhiFrame variant="accent" className="text-center !border-white/15 !bg-white/5">
             <p className="text-lg text-white/85">
-              Need a developer who can ship the UI, the API, <em className="text-gold not-italic">and</em> the AI layer?
+              Need a developer who can think through the UI, the API, the data model, and the AI workflow?
             </p>
             <p className="mt-2 text-sm text-white/60">adityasingh92731@gmail.com</p>
 
