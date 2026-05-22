@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f4ef"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#b8944f"/>
+  <text x="80" y="200" font-family="system-ui,sans-serif" font-size="28" font-weight="600" fill="#6b7d8f" letter-spacing="0.2em">FULL-STACK + AI</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="72" font-weight="800" fill="#1a2f45">Aditya Singh</text>
+  <text x="80" y="380" font-family="system-ui,sans-serif" font-size="32" fill="#2c4a6e">React · TypeScript · OpenAI · Node.js</text>
+  <rect x="80" y="440" width="280" height="4" fill="#b8944f"/>
+  <text x="80" y="520" font-family="system-ui,sans-serif" font-size="22" fill="#5a6b7d">Portfolio  Noida / Delhi NCR</text>
+  <circle cx="1050" cy="315" r="120" fill="#2c4a6e" opacity="0.12"/>
+  <circle cx="1050" cy="315" r="80" fill="#2c4a6e" opacity="0.2"/>
+</svg>
