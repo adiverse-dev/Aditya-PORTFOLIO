@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion,  } from 'framer-motion'
 import { FiExternalLink, FiGithub, FiShield, FiX, FiArrowRight } from 'react-icons/fi'
 import { type Project, projects } from '../data/projects'
 import { softSpring } from '../lib/motion'
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import * as Dialog from '@radix-ui/react-dialog'
 
 function ProjectPreview({ project, isModal = false }: { project: Project; isModal?: boolean }) {
@@ -65,7 +64,6 @@ const FadeBlock = ({ children, className = "" }: { children: React.ReactNode; cl
 }
 
 export default function Projects() {
-  const reduced = usePrefersReducedMotion()
   const [expandedId, setExpandedId] = useState<string | null>(null)
   
   useEffect(() => {
