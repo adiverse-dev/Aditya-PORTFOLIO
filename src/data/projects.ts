@@ -19,6 +19,7 @@ export type Project = {
   featured?: boolean
   ai: boolean
   preview: 'healio' | 'propai' | 'sniper'
+  image: string
   videoLabel?: string
 }
 
@@ -53,6 +54,7 @@ export const projects: Project[] = [
     featured: true,
     ai: true,
     preview: 'healio',
+    image: '/images/projects/healio.png',
   },
   {
     id: 'propai',
@@ -83,6 +85,7 @@ export const projects: Project[] = [
     github: 'https://github.com/adiverse-dev/propAI',
     ai: true,
     preview: 'propai',
+    image: '/images/projects/propai.png',
   },
   {
     id: 'sniper',
@@ -111,6 +114,7 @@ export const projects: Project[] = [
     github: 'https://github.com/adiverse-dev',
     ai: false,
     preview: 'sniper',
+    image: '/images/projects/sniper.png',
   },
 ]
 

@@ -1629,12 +1629,7 @@
     box-shadow: none;
   }
 
-  .project-case-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
-    align-items: stretch;
-    gap: clamp(1rem, 2vw, var(--phi-4));
-  }
+  /* Legacy project-case-grid replaced by Tailwind classes */
 
   .footer-link {
     display: inline-flex;

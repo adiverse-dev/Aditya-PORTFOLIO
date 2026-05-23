@@ -11,7 +11,7 @@ export default function ThemeToggle() {
       className="flex h-10 w-10 items-center justify-center rounded-sm border border-default bg-surface text-ink transition-colors hover:border-gold hover:text-gold"
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
+      {theme === 'dark' ? <FiMoon size={18} /> : <FiSun size={18} />}
     </button>
   )
 }
