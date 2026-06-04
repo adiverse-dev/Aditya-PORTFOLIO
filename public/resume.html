@@ -3,56 +3,317 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aditya Singh — Resume</title>
+  <title>Aditya Singh - Resume</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, sans-serif; color: #1a2f45; max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.5; }
-    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
-    h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: #b8944f; margin: 1.5rem 0 0.5rem; border-bottom: 2px solid #e8e4dc; padding-bottom: 0.25rem; }
-    p, li { font-size: 0.9rem; color: #3d4f5f; }
-    .meta { font-size: 0.85rem; color: #6b7d8f; margin-bottom: 1rem; }
-    ul { padding-left: 1.25rem; margin-top: 0.5rem; }
-    li { margin-bottom: 0.35rem; }
-    .print-hint { margin-top: 2rem; padding: 0.75rem; background: #f7f4ef; border-radius: 6px; font-size: 0.8rem; color: #6b7d8f; }
-    @media print { .print-hint { display: none; } }
+    body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.5; }
+
+    /* SCREEN MODE (Premium Portfolio Aesthetic) */
+    @media screen {
+      body.portfolio-theme {
+        background-color: #0d121c;
+        background-image: radial-gradient(circle at 50% 0%, rgba(184, 148, 79, 0.08) 0%, transparent 60%),
+                          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 100% 100%, 40px 40px, 40px 40px;
+        color: #e2e8f0;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+      
+      .resume-wrapper { max-width: 900px; margin: 0 auto; }
+      
+      .resume-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 1rem 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+      }
+      
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: color 0.2s;
+      }
+      .back-link:hover { color: #b8944f; }
+      
+      .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, #b8944f 0%, #a37c3b 100%);
+        color: #fff;
+        border: none;
+        padding: 0.7rem 1.25rem;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(184, 148, 79, 0.2);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(184, 148, 79, 0.3);
+      }
+      
+      /* Resume Document Card */
+      .resume-document {
+        background: #ffffff;
+        color: #111827;
+        padding: 4rem;
+        border-radius: 16px;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+      
+      .resume-document header { text-align: center; margin-bottom: 2rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 1.5rem; }
+      .resume-document h1 { font-size: 2.25rem; font-weight: 700; color: #111827; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
+      .resume-document .title { font-size: 1.1rem; font-weight: 500; color: #4b5563; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+      
+      .contact-info { font-size: 0.95rem; color: #374151; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+      .contact-item a { color: #2563eb; text-decoration: none; }
+      .contact-item a:hover { text-decoration: underline; }
+      .separator { color: #9ca3af; padding: 0 0.25rem; }
+      
+      .resume-document section { margin-bottom: 1.75rem; }
+      .resume-document h2 { font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; color: #111827; margin: 0 0 1rem 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; }
+      
+      .resume-document p { font-size: 1rem; color: #374151; margin-bottom: 0.75rem; }
+      .resume-document ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+      .resume-document li { font-size: 1rem; color: #374151; margin-bottom: 0.4rem; }
+      
+      .item-group { margin-bottom: 1.25rem; }
+      .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem; }
+      .item-title { font-size: 1.1rem; font-weight: 600; color: #111827; }
+      .item-subtitle { font-size: 1rem; font-weight: 500; color: #4b5563; font-style: italic; }
+      .item-date { font-size: 0.95rem; font-weight: 500; color: #6b7280; }
+      
+      .skills-category { margin-bottom: 0.5rem; font-size: 1rem; color: #374151; }
+      .skills-category strong { color: #111827; }
+      
+      @media (max-width: 768px) {
+        body.portfolio-theme { padding: 1rem 0.5rem; }
+        .resume-nav { flex-direction: column; gap: 1rem; text-align: center; }
+        .resume-document { padding: 2rem 1.5rem; border-radius: 12px; }
+        .item-header { flex-direction: column; }
+        .item-date { margin-top: 0.25rem; }
+      }
+    }
+
+    /* PRINT MODE (Clean ATS Output) */
+    @media print {
+      body { max-width: 100%; padding: 0.4in; font-size: 11pt; color: #000; background: none; }
+      
+      /* Hide Portfolio UI completely */
+      .resume-nav { display: none !important; }
+      .resume-document { box-shadow: none; border-radius: 0; padding: 0; background: none; }
+      
+      /* Essential ATS Resume Styling */
+      header { text-align: center; padding-bottom: 1rem; margin-bottom: 1.5rem; border-bottom: 2px solid #ccc; }
+      h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: 0.25rem; color: #000; }
+      .title { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.75rem; text-transform: uppercase; color: #000; }
+      
+      .contact-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+      a { color: #000; text-decoration: none; }
+      .separator { color: #9ca3af; padding: 0 0.25rem; }
+      
+      section { margin-bottom: 1.25rem; }
+      h2 { font-size: 1.25rem; text-transform: uppercase; color: #000; border-bottom: 1px solid #ccc; margin-bottom: 0.75rem; padding-bottom: 0.5rem; }
+      
+      p { margin-bottom: 0.75rem; }
+      ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+      li { margin-bottom: 0.25rem; }
+      
+      .item-group { margin-bottom: 1rem; }
+      .item-header { display: flex; justify-content: space-between; align-items: baseline; }
+      .item-title { font-weight: 600; color: #000; }
+      .item-subtitle { font-style: italic; color: #000; }
+      .item-date { color: #000; }
+      
+      .skills-category { margin-bottom: 0.5rem; }
+      .skills-category strong { color: #000; }
+      
+      @page { margin: 0.5in; }
+    }
   </style>
 </head>
-<body>
-  <h1>Aditya Singh</h1>
-  <p class="meta">Full-Stack &amp; AI Developer · Noida / Delhi NCR · adityasingh92731@gmail.com</p>
-  <p class="meta">
-    <a href="https://github.com/adiverse-dev">GitHub</a> ·
-    <a href="https://www.linkedin.com/in/aditya-singh-14137224b/">LinkedIn</a>
-  </p>
+<body class="portfolio-theme">
+  <div class="resume-wrapper">
+    
+    <!-- Portfolio Themed Navigation (Hidden on Print) -->
+    <nav class="resume-nav">
+      <div class="nav-left">
+        <a href="/" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Portfolio
+        </a>
+      </div>
+      <div class="nav-right">
+        <button class="download-btn" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download PDF
+        </button>
+      </div>
+    </nav>
 
-  <h2>Summary</h2>
-  <p>Full-stack developer building React/TypeScript products with integrated AI — dashboards, education platforms, and LLM-powered tools from API to UI.</p>
+    <!-- Core Resume Document (ATS Friendly) -->
+    <article class="resume-document">
+      <header>
+        <h1>Aditya Singh</h1>
+        <div class="title">Full-Stack Developer (MERN) | AI Integration & SaaS Development</div>
+        <div class="contact-info">
+          <span class="contact-item">+91 8840682592</span>
+          <span class="separator">•</span>
+          <span class="contact-item"><a href="mailto:adityasingh92731@gmail.com">adityasingh92731@gmail.com</a></span>
+          <span class="separator">•</span>
+          <span class="contact-item"><a href="https://www.linkedin.com/in/aditya-singh-14137224b/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+          <span class="separator">•</span>
+          <span class="contact-item"><a href="https://github.com/adiverse-dev" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+          <span class="separator">•</span>
+          <span class="contact-item">Noida / Delhi NCR</span>
+        </div>
+      </header>
 
-  <h2>Experience</h2>
-  <ul>
-    <li><strong>Full Stack Developer</strong> (2024–present) — React, Node, APIs, AI feature integration</li>
-    <li><strong>SEO / DevOps</strong> — Performance, Core Web Vitals, deployment pipelines</li>
-    <li><strong>Network Monitoring</strong> — Infrastructure visibility and alerting</li>
-  </ul>
+      <section>
+        <h2>Professional Summary</h2>
+        <p>Full-stack developer building React/TypeScript products with integrated AI — dashboards, education platforms, and LLM-powered tools from API to UI. Solutions-oriented approach specializing in MERN stack architecture and automation workflows to solve real business problems, optimize operations, and elevate the user experience.</p>
+      </section>
 
-  <h2>Projects</h2>
-  <ul>
-    <li><strong>Trackify</strong> — Analytics dashboard (React, TypeScript, Node, Recharts)</li>
-    <li><strong>Resume Intelligence</strong> — AI resume scoring &amp; parsing (OpenAI, React)</li>
-    <li><strong>Sniper Education</strong> — Live academy site (sniperdefenceacademy.com)</li>
-  </ul>
+      <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-category"><strong>Frontend:</strong> React, TypeScript, Next.js, Tailwind CSS, Framer Motion, HTML5, CSS3</div>
+        <div class="skills-category"><strong>Backend & Databases:</strong> Node.js, PostgreSQL, Prisma, MongoDB, Express.js, REST APIs</div>
+        <div class="skills-category"><strong>AI & Automation:</strong> OpenAI APIs, Structured JSON Pipelines, RAG Patterns, LLM Integration, Prompt Engineering</div>
+        <div class="skills-category"><strong>Platform & DevOps:</strong> Azure, Technical SEO, Performance Optimization, Core Web Vitals, Deployment Pipelines</div>
+      </section>
 
-  <h2>Skills</h2>
-  <ul>
-    <li>Frontend: React, TypeScript, Next.js, Tailwind, Framer Motion</li>
-    <li>Backend: Node.js, PostgreSQL, Prisma</li>
-    <li>AI: OpenAI APIs, structured JSON pipelines, RAG patterns</li>
-    <li>Platform: Azure, SEO, performance optimization</li>
-  </ul>
+      <section>
+        <h2>Professional Experience</h2>
+        
+        <div class="item-group">
+          <div class="item-header">
+            <span class="item-title">Full Stack Developer</span>
+            <span class="item-date">2024 - Present</span>
+          </div>
+          <ul>
+            <li>Build React and Node products with practical API and data architecture.</li>
+            <li>Integrate AI features leveraging LLMs for parsing, recommendations, feedback, and automation.</li>
+            <li>Own the path from interface polish to deployment and iteration.</li>
+          </ul>
+        </div>
 
-  <h2>Education</h2>
-  <p>B.Tech Computer Science — RTU</p>
+        <div class="item-group">
+          <div class="item-header">
+            <span class="item-title">SEO & DevOps Engineer</span>
+            <span class="item-date">2022 - 2024</span>
+          </div>
+          <ul>
+            <li>Improved technical SEO, site performance, and Core Web Vitals for live production platforms.</li>
+            <li>Managed deployment pipelines, infrastructure reliability, and monitoring protocols.</li>
+            <li>Established a strong foundation in measurement, discoverability, and systems thinking.</li>
+          </ul>
+        </div>
 
-  <p class="print-hint">Tip: Use <strong>Ctrl+P</strong> (or Cmd+P) → Save as PDF. Replace this file with <code>resume.pdf</code> in <code>public/</code> when you have a designed PDF.</p>
+        <div class="item-group">
+          <div class="item-header">
+            <span class="item-title">Network Monitoring Engineer</span>
+            <span class="item-date">2021 - 2022</span>
+          </div>
+          <ul>
+            <li>Monitored critical system health, infrastructure visibility, and incident response workflows.</li>
+            <li>Evaluated operational risk, managed alert systems, and identified failure states.</li>
+            <li>Applied a rigorous operational mindset into downstream product engineering.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Selected Projects</h2>
+        
+        <div class="item-group">
+          <div class="item-header">
+            <span class="item-title">Trackify — Analytics Dashboard</span>
+          </div>
+          <div class="item-subtitle">React, TypeScript, Node.js, Recharts</div>
+          <ul>
+            <li>Developed a comprehensive analytics dashboard tailored for data visualization and performance tracking.</li>
+          </ul>
+        </div>
+
+        <div class="item-group">
+          <div class="item-header">
+            <span class="item-title">Resume Intelligence — AI Resume Scoring & Parsing</span>
+          </div>
+          <div class="item-subtitle">React, OpenAI APIs</div>
+          <ul>
+            <li>Built an AI-powered tool leveraging OpenAI and structured JSON pipelines to intelligently parse, analyze, and score resumes.</li>
+          </ul>
+        </div>
+
+        <div class="item-group">
+          <div class="item-header">
+            <span class="item-title">Sniper Education — Live Academy Site</span>
+            <span class="item-date"><a href="https://www.sniperdefenceacademy.com/en" target="_blank" rel="noopener noreferrer">sniperdefenceacademy.com</a></span>
+          </div>
+          <div class="item-subtitle">React, Tailwind CSS, Vite, SEO</div>
+          <ul>
+            <li>Delivered a production-ready educational web platform with a modern frontend structure and conversion-focused mobile-first user experience.</li>
+          </ul>
+        </div>
+
+        <div class="item-group">
+          <div class="item-header">
+            <span class="item-title">propAI & Healio — AI SaaS Ecosystems</span>
+            <span class="item-date"><a href="https://github.com/adiverse-dev" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+          </div>
+          <div class="item-subtitle">MongoDB, Express.js, React, Node.js</div>
+          <ul>
+            <li>Developed multi-dashboard platforms for property management and healthcare workflows, integrating AI-assisted routing and operations guidance.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="item-group" style="margin-bottom: 0;">
+          <div class="item-header">
+            <span class="item-title">B.Tech – Computer Science & Engineering</span>
+            <span class="item-date">2020 – 2023</span>
+          </div>
+          <div class="item-subtitle" style="margin-bottom: 0.5rem; color: #4b5563;">GL Bajaj Institute of Technology & Management, Greater Noida</div>
+          <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 0.25rem; color: #111827;">Relevant Coursework:</p>
+          <ul style="margin-bottom: 0;">
+            <li>Computer Networks</li>
+            <li>Database Management Systems</li>
+            <li>Operating Systems</li>
+            <li>Data Structures & Algorithms</li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </div>
 </body>
 </html>

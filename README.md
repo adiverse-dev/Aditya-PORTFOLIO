@@ -18,7 +18,7 @@
 ## 🚀 Project Metrics
 
 - **Built with:** React + TypeScript + TailwindCSS
-- **Components:** 40+ reusable UI components
+- **Components:** Lean, custom glassmorphic UI components (Zero bloat)
 - **Layout:** Fully responsive Golden-Ratio system
 - **Theming:** Semantic Dark/Light theme support
 - **Architecture:** Accessibility-focused modal workspace
@@ -71,6 +71,9 @@ This project didn't emerge perfectly formed. It evolved through iterative phases
 * **Phase 5: Performance & UX Polish**
   * *What changed:* I stripped out fake "hacker terminal" loading animations. I optimized the framer-motion variants to use hardware-accelerated transforms and ensured the modal opened with zero latency.
   * *What I learned:* Users hate waiting. Fast, smooth, predictable interactions always beat flashy, slow animations.
+* **Phase 6: Codebase Audit & ATS-Optimization**
+  * *What changed:* Performed a massive codebase cleanup, removing over 150 unused Shadcn UI dependencies and 50+ unused component files to achieve a highly optimized bundle. Implemented an ATS-friendly dual-mode resume system that transitions from a premium dark theme on-screen to a pristine, unstyled print version via `@media print`.
+  * *What I learned:* The importance of bundle size, the dangers of over-installing UI libraries, and how to manipulate CSS for print-friendly document generation without external dependencies.
 
 ---
 
@@ -85,6 +88,7 @@ This project forced me to unlearn a lot of beginner habits. Here is how my minds
 | "If the screen is big, the UI should stretch to fill it." | "Controlled density and max-widths make reading comfortable." |
 | "Just hide `overflow-y` to stop background scrolling." | "Use proper portals and `overscroll-contain` to respect native browser mechanics." |
 | "If the CSS is broken, just add `!important` or fixed heights." | "Understand the flexbox hierarchy; find the parent container causing the collapse." |
+| "Install an entire UI library just to use one button." | "Audit dependencies ruthlessly and only keep the code that actually ships to the user." |
 
 ---
 

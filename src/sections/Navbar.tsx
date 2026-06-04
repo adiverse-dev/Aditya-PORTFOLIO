@@ -54,13 +54,15 @@ export default function Navbar() {
       }`}
     >
       <div className="section-shell flex items-center justify-between py-[var(--phi-2)]">
-        <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="group flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-sm bg-accent font-display text-lg font-semibold text-white shadow-[var(--shadow-sm)] transition-transform group-hover:scale-105">
+        <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="group flex items-center gap-2 sm:gap-3 min-w-0">
+          <span className="flex h-[34px] w-[34px] sm:h-10 sm:w-10 flex-shrink-0 items-center justify-center rounded-sm bg-accent font-display text-base sm:text-lg font-semibold text-white shadow-[var(--shadow-sm)] transition-transform group-hover:scale-105">
             A
           </span>
-          <div className="hidden sm:block">
-            <span className="whitespace-nowrap font-display text-lg font-semibold tracking-tight text-ink">Aditya Singh</span>
-            <span className="block whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.2em] text-gold">
+          <div className="flex flex-col min-w-0">
+            <span className="truncate font-display text-[13px] sm:text-lg font-semibold tracking-tight text-ink leading-none sm:leading-tight">
+              Aditya Singh
+            </span>
+            <span className="mt-[2px] sm:mt-0 block truncate text-[7.5px] sm:text-[9px] font-bold uppercase tracking-[0.2em] text-gold leading-none sm:leading-tight">
               MERN Stack + AI
             </span>
           </div>
@@ -84,14 +86,12 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden sm:block">
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
           <a
             href="https://www.linkedin.com/in/aditya-singh-14137224b/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden h-10 w-10 items-center justify-center rounded-sm border border-default bg-surface text-muted transition-colors hover:border-gold hover:text-accent sm:flex"
+            className="flex h-10 w-10 items-center justify-center rounded-sm border border-default bg-surface text-muted transition-colors hover:border-gold hover:text-accent"
             aria-label="LinkedIn"
           >
             <FiLinkedin size={18} />
@@ -100,18 +100,18 @@ export default function Navbar() {
             href="/resume.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="primary-btn !hidden !py-2.5 sm:!inline-flex"
+            className="primary-btn flex items-center justify-center !py-2.5"
+            aria-label="Resume"
           >
-            <FiDownload size={14} /> Resume
+            <FiDownload size={14} /> <span className="hidden sm:inline">Resume</span>
           </a>
           <button
             type="button"
-            className="mobile-menu-button flex h-10 w-10 items-center justify-center rounded-sm border border-default bg-surface text-ink lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-sm border border-default bg-surface text-ink lg:hidden relative z-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu"
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation"
-            style={{ position: 'fixed', right: '1rem', top: '1rem', zIndex: 60 }}
           >
             {mobileMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
@@ -134,6 +134,8 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
+            
+
           </nav>
         </div>
       )}
