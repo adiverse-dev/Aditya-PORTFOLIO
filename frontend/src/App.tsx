@@ -17,6 +17,7 @@ import Education from './sections/Education'
 import Blog from './sections/Blog'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
+import AIChatWidget from './components/AIChatWidget'
 
 const techMarquee = [
   'React',
@@ -88,6 +89,7 @@ function AppContent() {
           <Contact />
         </main>
         <Footer />
+        <AIChatWidget />
       </div>
     </div>
   )

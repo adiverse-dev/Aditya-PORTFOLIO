@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 tmp/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +28,4 @@ tmp/
 *.njsproj
 *.sln
 *.sw?
+.merge-backups/
